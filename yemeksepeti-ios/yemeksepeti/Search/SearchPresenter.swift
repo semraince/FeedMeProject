@@ -119,6 +119,8 @@ extension SearchPresenter: SearchInteractorOutput {
             totalPage = response.pageCount;
             shouldFetchNextPage = totalPage == pageNumber ? false : true
             if(itemList.count == 0){
+                view.configure()
+                view.refresh()
                 view.setEmptyView();
             }
             else{
