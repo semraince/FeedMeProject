@@ -90,6 +90,7 @@ extension SearchViewController: UICollectionViewDataSource {
             if let item = presenter.section(for: indexPath.section) {
                 reusableview.prepareUI()
                 reusableview.id = item.id
+                reusableview.searchDelegate = presenter as! SearchDelegate 
                 reusableview.configure(item: item)
             }
             return reusableview
