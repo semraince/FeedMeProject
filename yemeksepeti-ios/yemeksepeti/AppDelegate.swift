@@ -9,6 +9,7 @@ import UIKit
 import Firebase
 import CoreData
 import IQKeyboardManagerSwift
+import SDWebImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let userInfo = info {
             UserManager.shared.loadUserId(Int(userInfo.id))
         }
+        SDImageCache.shared.clearMemory()
+        SDImageCache.shared.clearDisk()
         window = UIWindow(frame: UIScreen.main.bounds)
         let tabbar = TabBarRouter.createModule()
         window?.rootViewController = tabbar
